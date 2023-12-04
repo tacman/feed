@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ActionRepository::class)]
 #[ORM\Table(name: "action")]
-#[ORM\UniqueConstraint(name: "title", columns: ["title"])]
+#[ORM\UniqueConstraint(name: "action_title", columns: ["title"])]
 #[ORM\UniqueConstraint(name: "UNIQ_47CC8C92AA779117", columns: ["reverse"])]
 class Action
 {

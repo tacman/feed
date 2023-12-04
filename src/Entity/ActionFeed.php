@@ -12,9 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ActionFeedRepository::class)]
 #[ORM\Table(name: "action_feed")]
-#[ORM\Index(name: "action_id", columns: ["action_id"])]
-#[ORM\Index(name: "feed_id", columns: ["feed_id"])]
-#[ORM\Index(name: "member_id", columns: ["member_id"])]
+#[ORM\Index(name: "action_feed_action_id", columns: ["action_id"])]
+#[ORM\Index(name: "action_feed_id", columns: ["feed_id"])]
+#[ORM\Index(name: "action_feed_member_id", columns: ["member_id"])]
 class ActionFeed
 {
     use ActionTrait;

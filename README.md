@@ -1,11 +1,34 @@
 # Requirements
 
 - Web server
-- PHP 8.2 with apcu, curl, gmp, iconv, json, mbstring, tidy, xml
+- PHP 8.2+ with apcu, curl, gmp, iconv, json, mbstring, tidy, xml
 - Composer
-- MySQL 8
+- MySQL 8 or Sqlite
 - npm
 
+
+# Developer Installation
+
+For development, you can use Sqlite for a super-fast setup.
+
+```bash
+git clone -b tac git@github.com:tacman/feed.git && cd feed
+composer install
+mkdir config/jwt-keys
+openssl genrsa -out config/jwt-keys/application.key 2048
+openssl rsa -in config/jwt-keys/application.key -pubout -out config/jwt-keys/application.pub
+
+composer install
+bin/console doctrine:schema:update --force --complete
+bin/console app:setup
+bin/console app:member:create
+
+npm install
+npm run build
+
+symfony server:start -d
+symfony open:local 
+```
 # Installation
 
 ## Web server

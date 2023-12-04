@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: FeedRepository::class)]
 #[ORM\Table(name: "feed")]
 #[ORM\Index(name: "next_collection", columns: ["next_collection"])]
-#[ORM\UniqueConstraint(name: "link", columns: ["link"])]
+#[ORM\UniqueConstraint(name: "feed_link", columns: ["link"])]
 class Feed
 {
     use IdTrait;

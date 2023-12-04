@@ -14,9 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ItemRepository::class)]
 #[ORM\Table(name: "item")]
-#[ORM\Index(name: "feed_id", columns: ["feed_id"])]
-#[ORM\Index(name: "author_id", columns: ["author_id"])]
-#[ORM\Index(name: "date", columns: ["date"])]
+#[ORM\Index(name: "item_feed_id", columns: ["feed_id"])]
+#[ORM\Index(name: "item_author_id", columns: ["author_id"])]
+#[ORM\Index(name: "item_date", columns: ["date"])]
 #[ORM\UniqueConstraint(name: "link", columns: ["link"])]
 class Item
 {

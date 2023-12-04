@@ -13,8 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ActionItemRepository::class)]
 #[ORM\Table(name: "action_item")]
 #[ORM\Index(name: "action_id", columns: ["action_id"])]
-#[ORM\Index(name: "item_id", columns: ["item_id"])]
-#[ORM\Index(name: "member_id", columns: ["member_id"])]
+#[ORM\Index(name: "action_item_id", columns: ["item_id"])]
+#[ORM\Index(name: "action_member_id", columns: ["member_id"])]
 class ActionItem
 {
     use ActionTrait;

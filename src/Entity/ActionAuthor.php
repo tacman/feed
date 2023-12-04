@@ -12,16 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ActionAuthorRepository::class)]
 #[ORM\Table(name: "action_author")]
-#[ORM\Index(name: "action_id", columns: ["action_id"])]
+#[ORM\Index(name: "author_action_id", columns: ["action_id"])]
 #[ORM\Index(name: "author_id", columns: ["author_id"])]
-#[ORM\Index(name: "member_id", columns: ["member_id"])]
+#[ORM\Index(name: "author_member_id", columns: ["member_id"])]
 class ActionAuthor
 {
     use ActionTrait;
     use IdTrait;
     use DateCreatedTrait;
 
-    #[ORM\ManyToOne(targetEntity: "App\Entity\Author", inversedBy: "actions", fetch: "LAZY")]
+    #[ORM\ManyToOne(targetEntity: Author::class, inversedBy: "actions", fetch: "LAZY")]
     #[ORM\JoinColumn(name: "author_id", referencedColumnName: "id", onDelete: "cascade", nullable: false)]
     private ?Author $author = null;
 

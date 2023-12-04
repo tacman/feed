@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AuthorRepository::class)]
 #[ORM\Table(name: "author")]
-#[ORM\UniqueConstraint(name: "title", columns: ["title"])]
+#[ORM\UniqueConstraint(name: "author_title", columns: ["title"])]
 class Author
 {
     use IdTrait;

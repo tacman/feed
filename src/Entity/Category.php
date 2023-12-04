@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: "category")]
-#[ORM\UniqueConstraint(name: "title", columns: ["title"])]
+#[ORM\UniqueConstraint(name: "category_title", columns: ["title"])]
 class Category
 {
     use IdTrait;

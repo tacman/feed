@@ -12,16 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ActionCategoryRepository::class)]
 #[ORM\Table(name: "action_category")]
-#[ORM\Index(name: "action_id", columns: ["action_id"])]
-#[ORM\Index(name: "category_id", columns: ["category_id"])]
-#[ORM\Index(name: "member_id", columns: ["member_id"])]
+#[ORM\Index(name: "action_category_action_id", columns: ["action_id"])]
+#[ORM\Index(name: "action_category_id", columns: ["category_id"])]
+#[ORM\Index(name: "action_category_member_id", columns: ["member_id"])]
 class ActionCategory
 {
     use ActionTrait;
     use IdTrait;
     use DateCreatedTrait;
 
-    #[ORM\ManyToOne(targetEntity: "App\Entity\Category", inversedBy: "actions", fetch: "LAZY")]
+    #[ORM\ManyToOne(targetEntity:Category::class, inversedBy: "actions", fetch: "LAZY")]
     #[ORM\JoinColumn(name: "category_id", referencedColumnName: "id", onDelete: "cascade", nullable: false)]
     private ?Category $category = null;
 

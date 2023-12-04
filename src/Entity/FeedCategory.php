@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: "feed_category")]
 #[ORM\UniqueConstraint(name: "feed_id_category_id", columns: ["feed_id", "category_id"])]
 #[ORM\Index(name: "feed_id", columns: ["feed_id"])]
-#[ORM\Index(name: "category_id", columns: ["category_id"])]
+#[ORM\Index(name: "feed_category_id", columns: ["category_id"])]
 class FeedCategory
 {
     use IdTrait;

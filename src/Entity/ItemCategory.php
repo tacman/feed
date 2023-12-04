@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ItemCategoryRepository::class)]
 #[ORM\Table(name: "item_category")]
 #[ORM\UniqueConstraint(name: "item_id_category_id", columns: ["item_id", "category_id"])]
-#[ORM\Index(name: "item_id", columns: ["item_id"])]
+#[ORM\Index(name: "item_category_item_id", columns: ["item_id"])]
 #[ORM\Index(name: "category_id", columns: ["category_id"])]
 class ItemCategory
 {
