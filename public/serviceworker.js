@@ -17,7 +17,8 @@ self.addEventListener('install', function(InstallEvent) {
         InstallEvent.waitUntil(
             caches.open(CACHE_KEY)
             .then(function(cache) {
-                return fetch('/assets/manifest.json')
+                return fetch('/site.webmanifest')
+                // return fetch('/assets/manifest.json')
                 .then(function(Response) {
                     return Response.json();
                 }).then(function(json) {

@@ -199,3 +199,7 @@ bin/console asset-map:compile
 
 ![iPad item dark](public/app/images/screenshots/ipad-item-dark.png)
 ![iPad feeds search](public/app/images/screenshots/ipad-feeds-search.png)
+
+# Populating the database
+
+https://github.com/microsoft/rss-reader-wp/blob/master/RSSReader_WP7/sample-opml.xml

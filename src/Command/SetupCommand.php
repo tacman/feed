@@ -4,24 +4,26 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Entity\Action;
+use App\Repository\ActionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(name: 'app:setup', description: 'Initialize data')]
 class SetupCommand extends Command
 {
-    private EntityManagerInterface $entityManager;
-
     private string $kernelProjectDir;
 
-    public function __construct(EntityManagerInterface $entityManager, string $kernelProjectDir)
+    public function __construct(private EntityManagerInterface $entityManager,
+                                private ActionRepository $actionRepository,
+                                string $kernelProjectDir)
     {
         parent::__construct();
 
-        $this->entityManager = $entityManager;
         $this->kernelProjectDir = $kernelProjectDir;
     }
 
@@ -36,12 +38,27 @@ class SetupCommand extends Command
             $count = $connection->fetchAssociative($sql);
 
             if (true === isset($count['total']) && 0 == $count['total']) {
-                $connection->executeQuery($file);
+                foreach (explode("\n", $file) as $sqlStatement) {
+                    if ($sqlStatement) {
+                        $connection->executeQuery($sqlStatement);
+                    }
+                }
                 $output->writeln('<info>Feed data inserted</info>');
             } else {
                 $output->writeln('<comment>Feed data already inserted</comment>');
             }
         }
+
+        $table = new Table($output);
+        $table->setHeaders(['id','title']);
+        /** @var Action $action */
+        foreach ($this->actionRepository->findAll() as $action) {
+            $table->addRow([
+                $action->getId(),
+                $action->getTitle()
+            ]);
+        }
+        $table->render();
 
         return Command::SUCCESS;
     }

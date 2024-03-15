@@ -91,7 +91,7 @@ class FeedManager extends AbstractManager
                     $insertFeed = [
                         'title' => CleanHelper::cleanTitle($obj->title),
                         'link' => $link,
-                        'website' => CleanHelper::cleanWebsite($obj->htmlUrl),
+                        'website' => CleanHelper::cleanWebsite($obj->htmlUrl??null),
                         'hostname' => $parseUrl['host'] ?? null,
                         'date_created' => (new \Datetime())->format('Y-m-d H:i:s'),
                         'date_modified' => (new \Datetime())->format('Y-m-d H:i:s'),

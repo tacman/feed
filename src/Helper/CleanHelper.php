@@ -4,7 +4,7 @@ namespace App\Helper;
 
 final class CleanHelper
 {
-    public static function cleanWebsite(string $website): string
+    public static function cleanWebsite(?string $website): ?string
     {
         $website = str_replace('&amp;', '&', $website);
         $website = mb_substr($website, 0, 255, 'UTF-8');
