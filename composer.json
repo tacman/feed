@@ -51,7 +51,8 @@
         "tronovav/geoip2-update": "^2.1",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "ext-tidy": "*"
+        "ext-tidy": "*",
+        "ext-simplexml": "*"
     },
     "require-dev": {
         "art4/json-api-client": "^1.1",
