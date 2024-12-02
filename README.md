@@ -203,3 +203,6 @@ bin/console asset-map:compile
 # Populating the database
 
 https://github.com/microsoft/rss-reader-wp/blob/master/RSSReader_WP7/sample-opml.xml
+
+https://raw.githubusercontent.com/spians/awesome-RSS-feeds/master/recommended/with_category/Books.opml
+
