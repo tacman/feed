@@ -113,7 +113,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "^7.0"
+            "require": "^7.2"
         }
     }
 }
